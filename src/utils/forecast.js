@@ -16,7 +16,9 @@ const forecast = (latitude, longitude, callback) => {
             // console.log(response.body.daily.data[0].summary)
             callback(undefined, {
                 result: 'It is currently ' + body.currently.temperature + ' degress out. There is a ' + body.currently.precipProbability + ' % chance of rain.',
-                message: body.daily.data[0].summary
+                message: body.daily.data[0].summary,
+                humidity: body.currently.humidity * 100,
+                pressure: body.currently.pressure
             })
         }
     })
